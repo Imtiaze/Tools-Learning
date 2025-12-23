@@ -894,8 +894,8 @@ OrderService **depends on** Mailer
 
 ## **4️⃣ Dependency vs Association (Critical Difference)**
 
-| Question | Dependency | Association |
-| ----- | ----- | ----- |
+|  Question | Dependency | Association |
+| :---- | :---- | ----- |
 | Stored as property? | ❌ No | ✅ Yes |
 | Long-lived relationship? | ❌ No | ✅ Yes |
 | Ownership? | ❌ No | ❌ No |
@@ -990,7 +990,7 @@ This answer alone impresses interviewers.
 ## **🧠 One-Line Rule (Memorize)**
 
 **If I store it → Association**  
- **If I only use it → Dependency**
+**If I only use it → Dependency**
 
 ---
 
@@ -1014,4 +1014,190 @@ This answer alone impresses interviewers.
 * Very common in Laravel
 
 * Key to clean design
+
+## **1\. A class calls a method of another class**
+
+`class Logger {`  
+    `public function log() {`  
+        `echo "Logging...";`  
+    `}`  
+`}`
+
+`class UserService {`  
+    `public function createUser() {`  
+        `$logger = new Logger();`  
+        `$logger->log();`  
+    `}`  
+`}`
+
+👉 `UserService` **depends on** `Logger`
+
+UML:
+
+`UserService ──▶ Logger`
+
+## **2️. A class accepts another class as a parameter**
+
+`class EmailService {`  
+    `public function send() {`  
+        `echo "Sending email";`  
+    `}`  
+`}`
+
+`class OrderService {`  
+    `public function placeOrder(EmailService $emailService) {`  
+        `$emailService->send();`  
+    `}`  
+`}`
+
+👉 `OrderService` **depends on** `EmailService`
+
+UML:
+
+`OrderService ──▶ EmailService`
+
+## **3️. A class creates an object inside a method**
+
+`class PdfGenerator {`  
+    `public function generate() {`  
+        `echo "Generating PDF";`  
+    `}`  
+`}`
+
+`class ReportService {`  
+    `public function createReport() {`  
+        `$pdf = new PdfGenerator();`  
+        `$pdf->generate();`  
+    `}`  
+`}`
+
+👉 `ReportService` **depends on** `PdfGenerator`
+
+UML:
+
+`ReportService ──▶ PdfGenerator`
+
+## **4️⃣ Quick Decision Table 🧠**
+
+| Question | Dependency | Aggregation |
+| ----- | ----- | ----- |
+| Stored as property? | ❌ | ✅ |
+| Used only in method? | ✅ | ❌ |
+| Created outside? | Either | ✅ |
+| Long-lived relationship? | ❌ | ✅ |
+| UML Arrow | Dashed \- \- \-→ | Empty diamond ◇ |
+
+## **1️⃣ Dependency — “I USE you”**
+
+### **Ask yourself**
+
+* Is it used **inside a method**?
+
+* Is it **not stored** in the class?
+
+* Is it **short-lived**?
+
+👉 YES → **Dependency**
+
+### **Example**
+
+`class InvoiceService {`  
+    `public function generate() {`  
+        `$pdf = new PdfGenerator(); // used temporarily`  
+        `$pdf->make();`  
+    `}`  
+`}`
+
+### **UML**
+
+`InvoiceService —--──▶ PdfGenerator`
+
+## **2️⃣ Aggregation — “I HAVE you (but don’t own you)”**
+
+### **Ask yourself**
+
+* Is it stored as a **class property**?
+
+* Is it passed **from outside**?
+
+* Can it exist **without this class**?
+
+👉 YES → **Aggregation**
+
+### **Example**
+
+`class Team {`  
+    `private array $players;`
+
+    `public function __construct(array $players) {`  
+        `$this->players = $players;`  
+    `}`  
+`}`
+
+### **UML**
+
+`Team ◇── Player`
+
+## **3️⃣ Borderline Example (very common confusion)**
+
+`class OrderService {`  
+    `private PaymentGateway $gateway;`
+
+    `public function __construct(PaymentGateway $gateway) {`  
+        `$this->gateway = $gateway;`  
+    `}`  
+`}`
+
+### **What is this?**
+
+Ask the rules:
+
+| Question | Answer |
+| ----- | :---- |
+| Stored as property? | ✅ Yes |
+| Created outside? | ✅ Yes |
+| Can it exist independently? | ✅ Yes |
+
+## **✅ Composite (Composition) version**
+
+### **Composition rule recap**
+
+The owner **creates** the object  
+ The part **cannot exist independently**
+
+---
+
+### **COMPOSITION version (correct)**
+
+`class PaymentGateway {`  
+    `public function charge(int $amount) {`  
+        `// payment logic`  
+    `}`  
+`}`
+
+`class OrderService {`  
+    `private PaymentGateway $gateway;`
+
+    `public function __construct() {`  
+        `// OrderService creates & owns PaymentGateway`  
+        `$this->gateway = new PaymentGateway();`  
+    `}`  
+`}`
+
+---
+
+## **Why this is Composition**
+
+| Rule | Result |
+| :---- | ----- |
+| Who creates PaymentGateway? | OrderService |
+| Can a gateway exist alone? | No (logically) |
+| Is it injected? | ❌ No |
+| Lifecycle controlled by | OrderService |
+
+➡️ **Strong ownership \= Composition**
+
+### **UML**
+
+`OrderService ◆── PaymentGateway`
 

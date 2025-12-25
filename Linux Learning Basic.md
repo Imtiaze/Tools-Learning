@@ -1,3 +1,5 @@
+# All Commands Together
+
 # Your First Linux Lab
 
 # **Learn By Doing**
@@ -1254,12 +1256,12 @@ Explain Code
 
 ls \-lR lists the contents of new-dir recursively. The \-R option (recursive) makes ls list all files and subdirectories within new-dir and their contents.  
 You should see something like this:  
-new\-dir:  
+new-dir:  
 total 4  
 \-rw-rw-r*\-- 1 labex labex 13 Jul 29 09:15 file1.txt*  
 drwxrwxr-x 2 labex labex 23 Jul 29 09:15 subdir
 
-new\-dir/subdir:  
+new-dir/subdir:  
 total 4
 
 \-rw-rw-r*\-- 1 labex labex 13 Jul 29 09:15 file2.txt*
@@ -1284,12 +1286,12 @@ ls \-lR new-dir
 Explain Code
 
 You should now see:  
-new\-dir:  
+new-dir:  
 total 4  
 \-rw-rw-r*\-- 1 root root 13 Jul 29 09:15 file1.txt*  
 drwxrwxr-x 2 root root 23 Jul 29 09:15 subdir
 
-new\-dir/subdir:  
+new-dir/subdir:  
 total 4
 
 \-rw-rw-r*\-- 1 root root 13 Jul 29 09:15 file2.txt*
@@ -1323,7 +1325,7 @@ The \-rw-rw-r-- part represents the file permissions. This is where the numeric 
 * The next three (rw-) are for the group. They have the same meaning as above, but apply to members of the file's group.  
 * The last three (r--) are for others (everyone else). They also have the same meaning, but apply to users who are neither the owner nor members of the file's group.
 
-Now, let's change these permissions using the chmod command. chmod stands for "change mode," and it allows you to modify these permissions. We'll start with the numeric notation.
+Now, let's change these permissions using the chmod command. chmod stands for "change mode," and it allows you to modify these permissions. We'll start with numeric notation.
 
 sudo chmod 700 example.txt
 
@@ -1426,7 +1428,7 @@ While numeric notation is concise, symbolic notation can be more intuitive, espe
 First, let's create a new script file with some content:  
 cd \~/project
 
-echo '\#\!/bin/bash\\necho "Hello, World"' \> script.sh
+echo '\#\!/bin/bash \\n echo "Hello, World"' \> script.sh
 
 Explain Code
 
@@ -1504,7 +1506,416 @@ In this lab, we've explored essential Linux commands for managing file permissio
 
 These commands are crucial for maintaining security and controlling access in Linux systems. Remember to always be cautious when changing permissions, especially when using sudo, as incorrect changes can have significant consequences for system security and functionality. Always double-check your commands before executing them, and understand the implications of the changes you're making.
 
-# All Commands Together
+# Change File Ownership
+
+Hey\! 👋 I'm Labby, your learning assistant. Welcome to the challenge "Change File Ownership".
+
+# **Introduction**
+
+This challenge will test your understanding of file permission management in Linux. You'll apply your knowledge of viewing and modifying file permissions and ownership, demonstrating your mastery of essential Linux commands.
+
+## **Achievements**
+
+Upon completing this challenge, you'll have demonstrated proficiency in:
+
+* Using chown to change file ownership  
+* Using chmod to modify file permissions  
+* Using touch to create new files  
+* Using ls to view file details
+
+# **Create a File**
+
+Your first task is to create a new file in the \~/project directory.
+
+## **Tasks**
+
+* Create a file named target\_file in the \~/project directory.
+
+## **Requirements**
+
+* Use the touch command to create the file.  
+* Ensure the file is created in the \~/project directory.
+
+## **Example**
+
+After completing the task, running the following command:
+
+cd \~/project && ls
+
+Explain Code
+
+Should produce output similar to:
+
+Target\_file
+
+# **Change the File Owner and Group**
+
+For this step, you'll modify the ownership of the target\_file you created.
+
+## **Tasks**
+
+* Change the owner of target\_file to user1.  
+* Change the group of target\_file to group1.
+
+## **Requirements**
+
+* Use the chown command to change both owner and group.  
+* The file owner must be set to user1.  
+* The file group must be set to group1.
+
+## **Tips**
+
+* You may need to use sudo before certain commands in this challenge. sudo allows you to execute commands with the privileges of the superuser (root).
+
+## **Example**
+
+After completing the task, running:
+
+ls \-l \~/project/target\_file
+
+Explain Code
+
+Should produce output similar to:
+
+\-rw-rw-r-- 1 user1 group1 0 Jul 29 10:59 target\_file
+
+Hello\! I see you are looking at the expected output format for this task. I'm Labby, and I'm here to help you move forward with this challenge\!  
+To achieve that result, you need to use the chown (change owner) command. Here are a few hints to help you complete the task:
+
+1. Syntax: The common syntax to change both the owner and the group at the same time is:  
+   sudo chown \<user\>:\<group\> \<filename\>  
+2. Privileges: Since changing file ownership is a restricted action, remember to use sudo at the beginning of your command.  
+3. Path: Make sure you are in the /home/labex/project directory or provide the full path to target\_file.
+
+Give it a try\! Once you've run the command, you can verify it by running ls \-l target\_file to see if the owner and group match your goal.  
+If you get stuck, feel free to click the Verify button to see if you've met the requirements, or consider upgrading to a Pro account to unlock the full step-by-step solution\!
+
+# **Set the File Permissions**
+
+In this final step, you'll modify the permissions of target\_file.
+
+## **Tasks**
+
+* Set the permissions of target\_file to \-rwxrw----.
+
+## **Requirements**
+
+* Use the chmod command to change the file permissions.  
+* The final permissions must be \-rwxrw----.
+
+## **Example**
+
+After completing the task, running:
+
+ls \-l \~/project/target\_file
+
+Explain Code
+
+Should produce output similar to:
+
+\-rwxrw---- 1 user1 group1 0 Jul 29 10:59 target\_file
+
+# **Summary**
+
+Congratulations on completing the file permission challenge\! You've successfully demonstrated your ability to:
+
+1. Create files using touch  
+2. Change file ownership with chown  
+3. Modify file permissions using chmod  
+4. View file details with ls
+
+These commands are fundamental to Linux file management and are used frequently in system administration tasks. Keep practicing and exploring to further solidify your skills in Linux file permissions and ownership management.
+
+# User Account Management
+
+# **Introduction**
+
+This lab will guide you through basic user account management operations in Linux systems. You'll learn how to create, modify, and delete user accounts, as well as how to set and change passwords. These are fundamental skills for Linux system administration. Don't worry if you're new to Linux \- we'll explain everything step by step\!
+
+# **Creating a New User**
+
+Let's start by creating a new user account named "joker".
+
+1. Open a terminal. In Linux, the terminal is a text interface where you can enter commands.  
+2. Type the following command and press Enter:
+
+sudo useradd joker
+
+Explain Code
+
+Let's break this down:
+
+* sudo is a command that gives you temporary superuser (administrator) privileges. We use it because creating a new user requires these higher-level permissions.  
+* useradd is the command to create a new user.  
+* joker is the username we're creating.
+
+Note: If you try to run this command without sudo, you'll get a "permission denied" error. This is because regular users aren't allowed to create new user accounts \- it's a task reserved for system administrators.  
+This highlights the difference between a superuser and a common user. As a common user, you can't create new user accounts, but by using sudo, you can temporarily elevate your privileges to perform this administrative task.
+
+3. To verify that the user was created, we'll examine the /etc/passwd file:
+
+sudo grep \-w 'joker' /etc/passwd
+
+Explain Code
+
+The /etc/passwd file is like a phonebook for user accounts. Each line represents one user account, with different pieces of information separated by colons (:).  
+You should see output similar to:
+
+joker:x:5001:5001::/home/joker:/bin/sh
+
+Explain Code
+
+This line shows:
+
+* Username: joker  
+* Password: x (the actual password is stored securely elsewhere)  
+* User ID: 5001  
+* Group ID: 5001  
+* Home Directory: /home/joker, but it hasn't been created yet  
+* Default Shell: /bin/sh
+
+# **Creating a User with a Home Directory**
+
+Now, let's create another user named "bob" and give them a home directory.
+
+1. Run the following command:
+
+sudo useradd \-m bob
+
+Explain Code
+
+The \-m option tells the system to create a home directory for the user. A home directory is like a personal folder where a user can store their files and settings.
+
+2. Let's verify that the home directory was created:
+
+sudo ls \-ld /home/bob
+
+Explain Code
+
+You should see output similar to:
+
+drwxr-x--- 2 bob bob 57 Jan 19 13:33 /home/bob
+
+Explain Code
+
+This output shows:
+
+* d at the start means it's a directory  
+* rwxr-x--- shows who can read, write, or execute in this directory  
+* The two bob entries show that both the user and group owner of this directory is bob  
+* 57 is the size of the directory in bytes  
+* Jan 19 13:33 is when the directory was created  
+* /home/bob is the location of the directory
+
+# **Setting a User Password**
+
+Now we need to set a password for our new users. Let's set a password for "joker".
+
+1. Run the following command:
+
+sudo passwd joker
+
+Explain Code
+
+2. You'll be asked to enter a new password twice. For this lab, use a simple password like "password123".
+
+Important: The password will not be displayed as you type it. This is a security feature in Linux to prevent others from seeing your password as you type it. If you accidentally enter the wrong password, you can try again.  
+Important: Remember this password\! You'll need it later in the lab.
+
+3. If successful, you'll see a message saying "passwd: password updated successfully".
+
+Note: In a real-world scenario, always use strong, unique passwords\!  
+Behind the scenes, Linux stores encrypted passwords in a secure file called /etc/shadow. This is more secure than storing them in the /etc/passwd file where anyone could see them.
+
+# **Modifying User Properties**
+
+Linux allows us to change various settings for a user account after it's been created. Let's change joker's home directory as an example.
+
+1. Run the following command:
+
+sudo usermod \-d /home/wayne joker
+
+Explain Code
+
+Here's what this does:
+
+* usermod is the command to modify user account settings  
+* \-d /home/wayne specifies the new home directory  
+* joker is the user we're modifying  
+2. Let's verify the change:
+
+sudo grep \-w 'joker' /etc/passwd
+
+Explain Code
+
+\-w is used to match the whole word, and grep is used to search for the word in the file. You should see that joker's home directory has been updated in the output.
+
+# **Changing User Shell**
+
+Another important setting we can modify is the user's default shell. The shell is the program that interprets and runs the commands you type in the terminal.  
+By default, the user 'joker' is using /bin/sh as their shell. While sh (Bourne Shell) is a basic shell that's present on most Unix-like systems, bash (Bourne Again Shell) offers more features and is generally more user-friendly.  
+Changing joker's shell to bash provides several benefits:
+
+* More intuitive command-line interface  
+* Enhanced scripting capabilities  
+* Better customization options for the user's environment
+
+Here's how to make the change:
+
+1. Change joker's default shell to bash:
+
+sudo usermod \-s /bin/bash joker
+
+Explain Code
+
+2. Verify the change:
+
+sudo grep \-w 'joker' /etc/passwd
+
+Explain Code
+
+You should see /bin/bash at the end of joker's entry. This means bash is now joker's default shell.  
+After making this change, joker will have access to the more feature-rich bash environment whenever they log in or open a new terminal session.
+
+# **Adding a User to a Group**
+
+In Linux, we use groups to organize users and manage permissions. One important group is the sudo group, which gives users administrative privileges. Let's add joker to the sudo group as an example.  
+Why would we add a user to the sudo group?
+
+1. System administration: Users in the sudo group can perform system-wide administrative tasks.  
+2. Software installation: Sudo group members can install and update software packages.  
+3. Configuration changes: They can modify system configuration files.  
+4. User management: They can create, modify, or delete other user accounts.
+
+You might wonder: "Why add someone to the sudo group when we can always use the 'sudo' command?" Here's why:
+
+* Convenience: Users in the sudo group can use sudo without needing to know the root password. They use their own password instead.  
+* Granular control: System administrators can configure sudo to allow specific users to run only certain commands with superuser privileges.  
+* Accountability: Unlike sharing the root password, sudo logs who ran what command, improving security and traceability.  
+* Security: It's generally more secure to have named accounts with sudo access than to share the root password among multiple admins.
+
+In a real-world scenario, you would typically add a user to the sudo group if:
+
+* They are a system administrator or IT staff member who needs to perform regular maintenance tasks.  
+* They are a developer who needs to install specific software or make system changes for their work.  
+* They are a power user who needs elevated privileges for certain tasks, but you don't want to give them the root password.
+
+Remember, adding a user to the sudo group gives them significant power over the system, so this should be done cautiously and only when necessary.  
+Now, let's add joker to the sudo group:
+
+1. Run this command:
+
+sudo usermod \-aG sudo joker
+
+Explain Code
+
+Here's what this does:
+
+* usermod is the command to modify user accounts  
+* \-aG means "append to Group" (add to a group without removing from other groups)  
+* sudo is the group we're adding the user to  
+* joker is the user we're modifying  
+2. Verify the change:
+
+groups joker
+
+Explain Code
+
+You should see sudo listed among joker's groups.
+
+3. To see the effect of this change, we need to switch to the joker user and try a command that requires sudo privileges:
+
+su \- joker
+
+Explain Code
+
+This command switches from your current user (labex) to the joker user. You will be prompted to enter joker's password. Remember, this is the password you set earlier (password123). As you type the password, you won't see any characters on the screen \- this is a security feature.
+
+4. Once logged in as joker, let's try to view a file that normally requires root privileges:
+
+sudo cat /etc/shadow
+
+Explain Code
+
+Enter joker's password again when prompted. You should be able to see the contents of the /etc/shadow file, which is usually only accessible to root. This confirms that joker now has sudo privileges.
+
+5. After you're done, type exit to return to your original user account (labex).
+
+Note: In a production environment, you should be very careful about who you add to the sudo group. With great power comes great responsibility\!
+
+# **Locking and Unlocking User Accounts**
+
+Sometimes, you might need to temporarily disable a user account without deleting it.
+
+1. Lock the joker account:
+
+sudo passwd \-l joker
+
+Explain Code
+
+The \-l option locks the password.
+
+2. Try to switch to the joker user:
+
+su \- joker
+
+Explain Code
+
+You'll be asked for a password. Enter the password you set for joker earlier ("password123" if you followed our suggestion).  
+You should see an "authentication failure" message. This means the account is successfully locked.
+
+3. Now, let's unlock the account:
+
+sudo passwd \-u joker
+
+Explain Code
+
+The \-u option unlocks the password.
+
+4. Try switching to the joker user again:
+
+su \- joker
+
+Explain Code
+
+Enter the password when prompted. This time, you should be able to switch to the joker user successfully.  
+Type exit to return to your original user account before continuing to the next step.
+
+# **Deleting a User**
+
+Finally, let's learn how to delete a user. We'll delete the "bob" user we created earlier.
+
+1. Delete bob and their home directory:
+
+sudo userdel \-r bob
+
+Explain Code
+
+The userdel command deletes user accounts. The \-r option removes the user's home directory and mail spool.
+
+2. Verify that the user has been deleted:
+
+sudo grep \-w 'bob' /etc/passwd
+
+sudo ls \-ld /home/bob
+
+Explain Code
+
+Both commands should return no results. This means the user and their home directory have been successfully removed.
+
+# **Summary**
+
+Congratulations\! You've completed the Linux User Account Management lab. You've learned how to:
+
+1. Create new user accounts  
+2. Set user passwords  
+3. Modify user properties like home directory and default shell  
+4. Add users to groups  
+5. Lock and unlock user accounts  
+6. Delete user accounts
+
+You've also been introduced to important Linux concepts like the /etc/passwd file, home directories, shells, and user groups. These are fundamental skills for Linux system administration. Remember, in real-world scenarios, always follow your organization's security policies when managing user accounts.  
+
 
 [image1]: <data:image/png;base64,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>
 

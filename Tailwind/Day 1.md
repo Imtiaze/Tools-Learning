@@ -108,11 +108,46 @@ centered on screen
 Try to build it yourself before checking the solution.
 
 <body class="bg-gray-200 flex justify-center items-center h-screen">
-
 <div class="bg-white shadow-xl px-10 py-5 rounded-lg w-96">
-  
-  <h1 class="font-bold text-2xl mb-2">Laravel Dashboard</h1>
-  <p class="text-gray-500 mb-6">Welcome Back</p>
-  <button class="bg-blue-600 text-white px-5 py-2 rounded mt-2 hover:bg-blue-700 transition">Login</button>
+  <h1 class="font-bold text-2xl mb-2">
+    Laravel Dashboard
+  </h1>
+  <p class="text-gray-500 mb-6">
+    Welcome Back
+  </p>
+  <button class="bg-blue-600 text-white px-5 py-2 rounded mt-2 hover:bg-blue-700 transition">
+    Login
+  </button>
 </div>
 </body>
+
+
+Cheat Sheet (Memorize Today)
+Category	Classes
+Padding	p-4 px-4 py-4 pt-4
+Margin	m-4 mt-4 mb-4 ml-4
+Background	bg-blue-500 bg-red-500 bg-gray-100
+Text	text-white text-black text-gray-500 text-2xl font-bold
+Width	w-full w-1/2 w-64
+Height	h-screen h-20
+Border	border rounded rounded-xl
+Shadow	shadow shadow-lg
+Layout	flex justify-center items-center
+
+
+Homework
+----------
+
+Make a simple Navbar
+
+<nav class="flex justify-between items-center px-10 py-6 bg-blue-400">
+  <div>
+    <img src="" alt="logo">
+  </div>
+  <ul class="flex gap-6">
+    <li>Home</li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+

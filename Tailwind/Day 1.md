@@ -122,17 +122,18 @@ Try to build it yourself before checking the solution.
 </body>
 
 
-Cheat Sheet (Memorize Today)
-Category	Classes
-Padding	p-4 px-4 py-4 pt-4
-Margin	m-4 mt-4 mb-4 ml-4
-Background	bg-blue-500 bg-red-500 bg-gray-100
-Text	text-white text-black text-gray-500 text-2xl font-bold
-Width	w-full w-1/2 w-64
-Height	h-screen h-20
-Border	border rounded rounded-xl
-Shadow	shadow shadow-lg
-Layout	flex justify-center items-center
+|Cheat| Sheet (Memorize Today)|
+|-----|--------------------------|
+|Category|	Classes|
+|Padding|	p-4 px-4 py-4 pt-4|
+|Margin|	m-4 mt-4 mb-4 ml-4|
+|Background|	bg-blue-500 bg-red-500 bg-gray-100|
+|Text|	text-white text-black text-gray-500 text-2xl font-bold|
+|Width|	w-full w-1/2 w-64|
+|Height|	h-screen h-20|
+|Border|	border rounded rounded-xl|
+|Shadow|	shadow shadow-lg|
+|Layout|	flex justify-center items-center|
 
 
 Homework
@@ -140,7 +141,7 @@ Homework
 
 Make a simple Navbar
 
-<nav class="flex justify-between items-center px-10 py-6 bg-blue-400">
+```html<nav class="flex justify-between items-center px-10 py-6 bg-blue-400">
   <div>
     <img src="" alt="logo">
   </div>
@@ -150,4 +151,4 @@ Make a simple Navbar
     <li>Contact</li>
   </ul>
 </nav>
-
+```

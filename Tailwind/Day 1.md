@@ -141,7 +141,8 @@ Homework
 
 Make a simple Navbar
 
-```html<nav class="flex justify-between items-center px-10 py-6 bg-blue-400">
+```html
+<nav class="flex justify-between items-center px-10 py-6 bg-blue-400">
   <div>
     <img src="" alt="logo">
   </div>

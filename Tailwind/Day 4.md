@@ -34,9 +34,12 @@
 </html>
 
 You now understand:
+----------------
+|✅ |Borders      |
+---------------------
+|✅ |Border colors|
+-------------------
 
-✅ Borders
-✅ Border colors
 ✅ Rounded corners
 ✅ rounded-full
 ✅ Buttons

@@ -36,3 +36,15 @@
 </div>
 
 
+<body class="bg-gray-100">
+    <div class="flex justify-between m-8 bg-white px-6 py-3 rounded-xl">
+        <div>
+            <h2 class="text-xl font-bold">Products</h2>
+            <p class="text-sm">Manage your inventory</p>
+        </div>
+        <button class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+            + Add Product
+        </button>
+
+    </div>    
+</body>

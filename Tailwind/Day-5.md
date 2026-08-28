@@ -55,4 +55,27 @@
         </button>
 
     </div>    
+    </div>   
+
+    <!-- Search & Filter -->
+        <div class="bg-white rounded-xl shadow p-4 mb-6">
+
+            <div class="flex flex-col md:flex-row gap-4">
+
+                <input
+                    type="text"
+                    placeholder="Search products..."
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+
+                <select
+                    class="border border-gray-300 rounded-lg px-4 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                    <option>All Categories</option>
+                    <option>T-Shirts</option>
+                    <option>Jeans</option>
+                    <option>Shoes</option>
+                </select>
+
+            </div>
+
+        </div> 
 </body>

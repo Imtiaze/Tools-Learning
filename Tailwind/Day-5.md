@@ -47,4 +47,12 @@
         </button>
 
     </div>    
+
+    <div class="flex gap-6 m-8 bg-white px-6 py-3 rounded-xl">
+        <input type="text" class="border  w-full">
+        <button class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+            + Add Product
+        </button>
+
+    </div>    
 </body>
